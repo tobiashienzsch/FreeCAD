@@ -159,17 +159,17 @@ inline void ZoomableView::checkLimits(int& zoom_level)
     zoom_level = qBound(ZoomableView::min, zoom_level, ZoomableView::max);
 }
 
-void ZoomableView::zoomIn(void)
+void ZoomableView::zoomIn()
 {
     setZoomLevel(m_zoomLevel + zoom_step_kb);
 }
 
-void ZoomableView::zoomOut(void)
+void ZoomableView::zoomOut()
 {
     setZoomLevel(m_zoomLevel - zoom_step_kb);
 }
 
-void ZoomableView::resetZoom(void)
+void ZoomableView::resetZoom()
 {
     constexpr const char* path = "User parameter:BaseApp/Preferences/Mod/Spreadsheet";
     ParameterGrp::handle hGrp = App::GetApplication().GetParameterGroupByPath(path);
@@ -178,7 +178,7 @@ void ZoomableView::resetZoom(void)
     setZoomLevel(defaultZoomLevel);
 }
 
-void ZoomableView::updateView(void)
+void ZoomableView::updateView()
 {
     /* QGraphicsView has hardcoded margins therefore we have to avoid fitInView
      * Find more information at https://bugreports.qt.io/browse/QTBUG-42331 */

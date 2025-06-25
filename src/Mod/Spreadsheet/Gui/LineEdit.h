@@ -59,11 +59,11 @@ public:
     explicit XListView(LineEdit* parent);
 
 Q_SIGNALS:
-    void geometryChanged(void);
+    void geometryChanged();
 
 protected:
     void resizeEvent(QResizeEvent* event) override;
-    void updateGeometries(void) override;
+    void updateGeometries() override;
 };
 
 }  // namespace SpreadsheetGui

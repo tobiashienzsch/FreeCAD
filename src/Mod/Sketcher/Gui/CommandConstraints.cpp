@@ -2813,7 +2813,7 @@ void CmdSketcherDimension::updateAction(int mode)
     }
 }
 
-bool CmdSketcherDimension::isActive(void)
+bool CmdSketcherDimension::isActive()
 {
     return isCommandActive(getActiveGuiDocument());
 }

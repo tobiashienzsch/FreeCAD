@@ -260,7 +260,7 @@ private:
 class PartExport PropertyShapeCache: public App::Property {
     TYPESYSTEM_HEADER_WITH_OVERRIDE();
 public:
-    virtual App::Property *Copy(void) const override;
+    virtual App::Property* Copy() const override;
 
     virtual void Paste(const App::Property &) override;
 

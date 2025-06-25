@@ -278,7 +278,7 @@ public:
     void Save (Base::Writer &/*writer*/) const override;
     void Restore(Base::XMLReader &/*reader*/) override;
     // Base implementer ----------------------------
-    PyObject *getPyObject(void) override;
+    PyObject* getPyObject() override;
     bool isSame(const Geometry &other, double tol, double atol) const override;
 
     void setHandle(const Handle(Geom_BezierCurve)&);
@@ -447,7 +447,7 @@ public:
     void Save(Base::Writer &/*writer*/) const override;
     void Restore(Base::XMLReader &/*reader*/) override;
     // Base implementer ----------------------------
-    PyObject *getPyObject(void) override;
+    PyObject* getPyObject() override;
 
     bool isSame(const Geometry &other, double tol, double atol) const override;
 
@@ -1049,7 +1049,7 @@ public:
     // Base implementer ----------------------------
     PyObject *getPyObject() override;
 
-    double getRadius(void) const;
+    double getRadius() const;
 
     bool isSame(const Geometry &other, double tol, double atol) const override;
 

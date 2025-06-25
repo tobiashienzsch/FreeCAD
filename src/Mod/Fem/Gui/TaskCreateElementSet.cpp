@@ -475,7 +475,7 @@ TaskCreateElementSet::TaskCreateElementSet(Fem::FemSetElementNodesObject* pcObje
     }
 }
 
-void TaskCreateElementSet::Poly(void)
+void TaskCreateElementSet::Poly()
 {
     Gui::Document* doc = Gui::Application::Instance->activeDocument();
     Gui::MDIView* view = doc->getActiveView();
@@ -489,7 +489,7 @@ void TaskCreateElementSet::Poly(void)
     }
 }
 
-void TaskCreateElementSet::CopyResultsMesh(void)
+void TaskCreateElementSet::CopyResultsMesh()
 {
     std::vector<Gui::SelectionSingleton::SelObj> selection =
         Gui::Selection().getSelection();  // [0];
@@ -498,7 +498,7 @@ void TaskCreateElementSet::CopyResultsMesh(void)
     Gui::Command::doCommand(Gui::Command::Doc, "Gui.activeDocument().resetEdit()");
 }
 
-void TaskCreateElementSet::Restore(void)
+void TaskCreateElementSet::Restore()
 {
     App::Document* doc = App::GetApplication().getActiveDocument();
     const std::vector<App::DocumentObject*>& all = doc->getObjects();

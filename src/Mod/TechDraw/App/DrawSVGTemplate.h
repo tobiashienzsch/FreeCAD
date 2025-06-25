@@ -50,11 +50,12 @@ public:
 
     void onChanged(const App::Property* prop) override;
    /// returns the type name of the ViewProvider
-    const char* getViewProviderName(void) const override {
+    const char* getViewProviderName() const override
+    {
         return "TechDrawGui::ViewProviderTemplate";
     }
 
-    PyObject *getPyObject(void) override;
+    PyObject* getPyObject() override;
 
     double getWidth() const override;
     double getHeight() const override;

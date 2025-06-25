@@ -45,7 +45,7 @@ using DU = DrawUtil;
 
 PROPERTY_SOURCE(TechDraw::DrawHatch, App::DocumentObject)
 
-DrawHatch::DrawHatch(void)
+DrawHatch::DrawHatch()
 {
     static const char *vgroup = "Hatch";
 
@@ -71,7 +71,7 @@ void DrawHatch::onChanged(const App::Property* prop)
     App::DocumentObject::onChanged(prop);
 }
 
-App::DocumentObjectExecReturn *DrawHatch::execute(void)
+App::DocumentObjectExecReturn* DrawHatch::execute()
 {
     DrawViewPart* parent = getSourceView();
     if (parent) {
@@ -80,14 +80,14 @@ App::DocumentObjectExecReturn *DrawHatch::execute(void)
     return App::DocumentObject::StdReturn;
 }
 
-DrawViewPart* DrawHatch::getSourceView(void) const
+DrawViewPart* DrawHatch::getSourceView() const
 {
     App::DocumentObject* obj = Source.getValue();
     DrawViewPart* result = freecad_cast<DrawViewPart*>(obj);
     return result;
 }
 
-PyObject *DrawHatch::getPyObject(void)
+PyObject* DrawHatch::getPyObject()
 {
     if (PythonObject.is(Py::_None())) {
         // ref counter is set to 1
@@ -152,7 +152,7 @@ bool DrawHatch::removeSub(int i)
     return removeSub(ss.str());
 }
 
-bool DrawHatch::empty(void)
+bool DrawHatch::empty()
 {
     const std::vector<std::string> &sourceNames = Source.getSubValues();
     return sourceNames.empty();
@@ -179,7 +179,7 @@ void DrawHatch::setupObject()
     replaceFileIncluded(HatchPattern.getValue());
 }
 
-void DrawHatch::unsetupObject(void)
+void DrawHatch::unsetupObject()
 {
 //    Base::Console().message("DH::unsetupObject() - status: %lu  removing: %d \n", getStatus(), isRemoving());
     App::DocumentObject* source = Source.getValue();
@@ -190,13 +190,13 @@ void DrawHatch::unsetupObject(void)
     App::DocumentObject::unsetupObject();
 }
 
-bool DrawHatch::isSvgHatch(void) const
+bool DrawHatch::isSvgHatch() const
 {
     Base::FileInfo fi(HatchPattern.getValue());
     return fi.hasExtension("svg");
 }
 
-bool DrawHatch::isBitmapHatch(void) const
+bool DrawHatch::isBitmapHatch() const
 {
     Base::FileInfo fi(HatchPattern.getValue());
     return fi.hasExtension({"bmp", "png", "jpg", "jpeg"});
@@ -210,12 +210,12 @@ void DrawHatch::translateLabel(std::string context, std::string baseName, std::s
 }
 
 //standard preference getters
-std::string DrawHatch::prefSvgHatch(void)
+std::string DrawHatch::prefSvgHatch()
 {
     return Preferences::svgFile();
 }
 
-Base::Color DrawHatch::prefSvgHatchColor(void)
+Base::Color DrawHatch::prefSvgHatchColor()
 {
     Base::Color fcColor;
     fcColor.setPackedValue(Preferences::getPreferenceGroup("Colors")->GetUnsigned("Hatch", 0x00FF0000));
@@ -227,7 +227,9 @@ Base::Color DrawHatch::prefSvgHatchColor(void)
 namespace App {
 /// @cond DOXERR
 PROPERTY_SOURCE_TEMPLATE(TechDraw::DrawHatchPython, TechDraw::DrawHatch)
-template<> const char* TechDraw::DrawHatchPython::getViewProviderName(void) const {
+template<>
+const char* TechDraw::DrawHatchPython::getViewProviderName() const
+{
     return "TechDrawGui::ViewProviderHatch";
 }
 /// @endcond

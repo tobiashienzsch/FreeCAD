@@ -891,7 +891,8 @@ void PropertyFilletEdges::Paste(const Property &from)
 
 TYPESYSTEM_SOURCE(Part::PropertyShapeCache, App::Property);
 
-App::Property *PropertyShapeCache::Copy(void) const {
+App::Property* PropertyShapeCache::Copy() const
+{
     return new PropertyShapeCache();
 }
 

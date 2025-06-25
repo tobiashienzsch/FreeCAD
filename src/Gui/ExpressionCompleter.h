@@ -101,7 +101,7 @@ public:
     void hideCompleter();
     void setNoProperty(bool enabled=true);
     void setExactMatch(bool enabled=true);
-    ExpressionCompleter *getCompleter(void);
+    ExpressionCompleter* getCompleter();
 Q_SIGNALS:
     void textChanged2(QString text, int pos);
 public Q_SLOTS:

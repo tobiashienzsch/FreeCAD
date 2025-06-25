@@ -97,7 +97,7 @@ void CmdTechDrawStackGroup::activated(int iMsg)
     };
 }
 
-Gui::Action * CmdTechDrawStackGroup::createAction(void)
+Gui::Action* CmdTechDrawStackGroup::createAction()
 {
     Gui::ActionGroup* pcAction = new Gui::ActionGroup(this, Gui::getMainWindow());
     pcAction->setDropDownMenu(true);
@@ -157,7 +157,7 @@ void CmdTechDrawStackGroup::languageChange()
     arc4->setStatusTip(arc4->toolTip());
 }
 
-bool CmdTechDrawStackGroup::isActive(void)
+bool CmdTechDrawStackGroup::isActive()
 {
     bool havePage = DrawGuiUtil::needPage(this);
     bool haveView = DrawGuiUtil::needView(this, false);
@@ -196,7 +196,7 @@ void CmdTechDrawStackTop::activated(int iMsg)
     execStackTop(this);
 }
 
-bool CmdTechDrawStackTop::isActive(void)
+bool CmdTechDrawStackTop::isActive()
 {
     bool havePage = DrawGuiUtil::needPage(this);
     bool haveView = DrawGuiUtil::needView(this, false);
@@ -256,7 +256,7 @@ void CmdTechDrawStackBottom::activated(int iMsg)
     execStackBottom(this);
 }
 
-bool CmdTechDrawStackBottom::isActive(void)
+bool CmdTechDrawStackBottom::isActive()
 {
     bool havePage = DrawGuiUtil::needPage(this);
     bool haveView = DrawGuiUtil::needView(this, false);
@@ -316,7 +316,7 @@ void CmdTechDrawStackUp::activated(int iMsg)
     execStackUp(this);
 }
 
-bool CmdTechDrawStackUp::isActive(void)
+bool CmdTechDrawStackUp::isActive()
 {
     bool havePage = DrawGuiUtil::needPage(this);
     bool haveView = DrawGuiUtil::needView(this, false);
@@ -376,7 +376,7 @@ void CmdTechDrawStackDown::activated(int iMsg)
     execStackDown(this);
 }
 
-bool CmdTechDrawStackDown::isActive(void)
+bool CmdTechDrawStackDown::isActive()
 {
     bool havePage = DrawGuiUtil::needPage(this);
     bool haveView = DrawGuiUtil::needView(this, false);
@@ -404,7 +404,7 @@ void execStackDown(Gui::Command* cmd)
     }
 }
 
-void CreateTechDrawCommandsStack(void)
+void CreateTechDrawCommandsStack()
 {
     Gui::CommandManager& rcCmdMgr = Gui::Application::Instance->commandManager();
 

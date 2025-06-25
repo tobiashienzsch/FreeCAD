@@ -385,7 +385,7 @@ void DrawViewDetail::makeDetailShape(const TopoDS_Shape& shape3d, DrawViewPart* 
     showProgressMessage(getNameInDocument(), "has finished making detail shape");
 }
 
-void DrawViewDetail::postHlrTasks(void)
+void DrawViewDetail::postHlrTasks()
 {
     DrawViewPart::postHlrTasks();
 
@@ -404,7 +404,7 @@ void DrawViewDetail::postHlrTasks(void)
 }
 
 //continue processing after makeDetailShape thread is finished
-void DrawViewDetail::onMakeDetailFinished(void)
+void DrawViewDetail::onMakeDetailFinished()
 {
     waitingForDetail(false);
     QObject::disconnect(connectDetailWatcher);

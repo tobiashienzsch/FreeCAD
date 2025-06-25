@@ -1029,7 +1029,7 @@ void DrawProjGroup::updateChildrenLock()
     }
 }
 
-void DrawProjGroup::updateChildrenEnforce(void)
+void DrawProjGroup::updateChildrenEnforce()
 {
     for (const auto it : Views.getValues()) {
         auto view(freecad_cast<DrawProjGroupItem*>(it));

@@ -224,7 +224,7 @@ void TaskCosmeticCircle::enableArcWidgets(bool newState)
 
 
 //******************************************************************************
-void TaskCosmeticCircle::createCosmeticCircle(void)
+void TaskCosmeticCircle::createCosmeticCircle()
 {
 //    Base::Console().message("TCL::createCosmeticCircle()\n");
 
@@ -259,7 +259,7 @@ void TaskCosmeticCircle::createCosmeticCircle(void)
     Gui::Command::commitCommand();
 }
 
-void TaskCosmeticCircle::updateCosmeticCircle(void)
+void TaskCosmeticCircle::updateCosmeticCircle()
 {
     // Base::Console().message("TCL::updateCosmeticCircle()\n");
     double x = ui->qsbCenterX->value().getValue();

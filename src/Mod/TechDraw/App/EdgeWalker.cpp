@@ -505,7 +505,7 @@ void ewWire::push_back(WalkerEdge w)
     wedges.push_back(w);
 }
 
-std::size_t ewWire::size(void)
+std::size_t ewWire::size()
 {
     return wedges.size();
 }
@@ -542,7 +542,7 @@ void ewWireList::push_back(ewWire w)
     wires.push_back(w);
 }
 
-std::size_t ewWireList::size(void)
+std::size_t ewWireList::size()
 {
     return wires.size();
 }

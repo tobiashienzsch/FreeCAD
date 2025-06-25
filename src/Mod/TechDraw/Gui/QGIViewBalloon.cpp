@@ -861,14 +861,14 @@ void QGIViewBalloon::drawBalloon(bool originDrag)
     }
 }
 
-void QGIViewBalloon::setPrettyPre(void)
+void QGIViewBalloon::setPrettyPre()
 {
     arrow->setPrettyPre();
     balloonShape->setPrettyPre();
     balloonLines->setPrettyPre();
 }
 
-void QGIViewBalloon::setPrettySel(void)
+void QGIViewBalloon::setPrettySel()
 {
     //    Base::Console().message("QGIVBal::setPrettySel()\n");
     arrow->setPrettySel();
@@ -877,7 +877,7 @@ void QGIViewBalloon::setPrettySel(void)
     balloonLines->setPrettySel();
 }
 
-void QGIViewBalloon::setPrettyNormal(void)
+void QGIViewBalloon::setPrettyNormal()
 {
     arrow->setPrettyNormal();
     //    balloonShape->setFill(Qt::white, Qt::SolidPattern);
@@ -886,7 +886,7 @@ void QGIViewBalloon::setPrettyNormal(void)
 }
 
 
-void QGIViewBalloon::drawBorder(void)
+void QGIViewBalloon::drawBorder()
 {
     //Dimensions have no border!
     //    Base::Console().message("TRACE - QGIViewDimension::drawBorder - doing nothing!\n");
@@ -911,7 +911,7 @@ void QGIViewBalloon::paint(QPainter* painter, const QStyleOptionGraphicsItem* op
     setPens();
 }
 
-void QGIViewBalloon::setSvgPens(void)
+void QGIViewBalloon::setSvgPens()
 {
     double svgLineFactor = 3.0;//magic number.  should be a setting somewhere.
     balloonLines->setWidth(m_lineWidth / svgLineFactor);
@@ -919,7 +919,7 @@ void QGIViewBalloon::setSvgPens(void)
     arrow->setWidth(arrow->getWidth() / svgLineFactor);
 }
 
-void QGIViewBalloon::setPens(void)
+void QGIViewBalloon::setPens()
 {
     balloonLines->setWidth(m_lineWidth);
     balloonShape->setWidth(m_lineWidth);

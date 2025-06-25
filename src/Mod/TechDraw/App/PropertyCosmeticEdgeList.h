@@ -55,7 +55,7 @@ public:
     ~PropertyCosmeticEdgeList() override;
 
     void setSize(int newSize) override;
-    int getSize(void) const override;
+    int getSize() const override;
 
     /** Sets the property
      */
@@ -81,7 +81,7 @@ public:
     App::Property *Copy() const override;
     void Paste(const App::Property &from) override;
 
-    unsigned int getMemSize(void) const override;
+    unsigned int getMemSize() const override;
 
 private:
     std::vector<CosmeticEdge*> _lValueList;

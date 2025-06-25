@@ -730,7 +730,7 @@ void DrawView::translateLabel(std::string context, std::string baseName, std::st
 //    Base::Console().message("DV::translateLabel - new label: %s\n", Label.getValue());
 }
 
-PyObject *DrawView::getPyObject(void)
+PyObject* DrawView::getPyObject()
 {
     if (PythonObject.is(Py::_None())) {
         // ref counter is set to 1

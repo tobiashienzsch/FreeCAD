@@ -56,10 +56,13 @@ public:
     void updateData(const App::Property*) override;
     void onChanged(const App::Property *prop) override;
     bool setEdit(int ModNum) override;
-    bool doubleClicked(void) override;
-    bool useNewSelectionModel(void) const override {return false;}
-    void updateGraphic(void);
-    void getParameters(void);
+    bool doubleClicked() override;
+    bool useNewSelectionModel() const override
+    {
+        return false;
+    }
+    void updateGraphic();
+    void getParameters();
     bool canDelete(App::DocumentObject* obj) const override;
 
     TechDraw::DrawGeomHatch* getViewObject() const;

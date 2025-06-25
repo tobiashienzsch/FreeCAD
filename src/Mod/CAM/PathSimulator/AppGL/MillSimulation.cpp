@@ -168,7 +168,7 @@ void MillSimulation::GlsimStart()
     glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);
 }
 
-void MillSimulation::GlsimToolStep1(void)
+void MillSimulation::GlsimToolStep1()
 {
     glCullFace(GL_BACK);
     glDepthFunc(GL_LESS);
@@ -178,7 +178,7 @@ void MillSimulation::GlsimToolStep1(void)
 }
 
 
-void MillSimulation::GlsimToolStep2(void)
+void MillSimulation::GlsimToolStep2()
 {
     glStencilFunc(GL_EQUAL, 1, 0xFF);
     glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
@@ -187,7 +187,7 @@ void MillSimulation::GlsimToolStep2(void)
     glDepthMask(GL_TRUE);
 }
 
-void MillSimulation::GlsimClipBack(void)
+void MillSimulation::GlsimClipBack()
 {
     glStencilFunc(GL_ALWAYS, 1, 0xFF);
     glStencilOp(GL_REPLACE, GL_REPLACE, GL_ZERO);
@@ -197,7 +197,7 @@ void MillSimulation::GlsimClipBack(void)
 }
 
 
-void MillSimulation::GlsimRenderStock(void)
+void MillSimulation::GlsimRenderStock()
 {
     glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
     glEnable(GL_STENCIL_TEST);
@@ -207,12 +207,12 @@ void MillSimulation::GlsimRenderStock(void)
     glCullFace(GL_BACK);
 }
 
-void MillSimulation::GlsimRenderTools(void)
+void MillSimulation::GlsimRenderTools()
 {
     glCullFace(GL_FRONT);
 }
 
-void MillSimulation::GlsimEnd(void)
+void MillSimulation::GlsimEnd()
 {
     glCullFace(GL_BACK);
     glStencilFunc(GL_ALWAYS, 1, 0xFF);

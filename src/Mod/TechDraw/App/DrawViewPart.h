@@ -230,8 +230,8 @@ public:
     void resetReferenceVerts();
 
     // routines related to multi-threading
-    virtual void postHlrTasks(void);
-    virtual void postFaceExtractionTasks(void);
+    virtual void postHlrTasks();
+    virtual void postFaceExtractionTasks();
     bool waitingForFaces() const { return m_waitingForFaces; }
     void waitingForFaces(bool s) { m_waitingForFaces = s; }
     bool waitingForHlr() const { return m_waitingForHlr; }
@@ -244,8 +244,8 @@ public:
     bool isCenterLine(const std::string& element);
 
 public Q_SLOTS:
-    void onHlrFinished(void);
-    void onFacesFinished(void);
+    void onHlrFinished();
+    void onFacesFinished();
 
 protected:
     bool checkXDirection() const;
@@ -261,7 +261,7 @@ protected:
                                                             const gp_Ax2& viewAxis);
     virtual TechDraw::GeometryObjectPtr makeGeometryForShape(TopoDS_Shape& shape);//const??
     void partExec(TopoDS_Shape& shape);
-    virtual void addPoints(void);
+    virtual void addPoints();
 
     void extractFaces();
     void findFacesNew(const std::vector<TechDraw::BaseGeomPtr>& goEdges);

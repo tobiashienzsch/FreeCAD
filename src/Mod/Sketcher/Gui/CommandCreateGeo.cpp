@@ -1260,7 +1260,7 @@ void CmdSketcherCreateArcSlot::activated(int iMsg)
     ActivateHandler(getActiveGuiDocument(), std::make_unique<DrawSketchHandlerArcSlot>());
 }
 
-bool CmdSketcherCreateArcSlot::isActive(void)
+bool CmdSketcherCreateArcSlot::isActive()
 {
     return isCommandActive(getActiveGuiDocument());
 }

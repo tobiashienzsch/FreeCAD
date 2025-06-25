@@ -59,7 +59,10 @@ public:
     void setStyle(TechDraw::ArrowType s) { m_style = s; }
     bool getDirMode() { return m_dirMode; }
     void setDirMode(bool b) { m_dirMode = b; }
-    Base::Vector3d getDirection(void) { return m_flipped ? -m_dir : m_dir; }
+    Base::Vector3d getDirection()
+    {
+        return m_flipped ? -m_dir : m_dir;
+    }
     void setDirection(Base::Vector3d v) { m_dir = v; }
     void setDirection(double angle) { m_dir = Base::Vector3d(cos(angle), sin(angle), 0.0); }
     static TechDraw::ArrowType getPrefArrowStyle();

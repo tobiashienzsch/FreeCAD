@@ -85,12 +85,12 @@ public:
 protected:
     void InitDisplay(float quality);
     void GlsimStart();
-    void GlsimToolStep1(void);
-    void GlsimToolStep2(void);
-    void GlsimClipBack(void);
-    void GlsimRenderStock(void);
-    void GlsimRenderTools(void);
-    void GlsimEnd(void);
+    void GlsimToolStep1();
+    void GlsimToolStep2();
+    void GlsimClipBack();
+    void GlsimRenderStock();
+    void GlsimRenderTools();
+    void GlsimEnd();
     void renderSegmentForward(int iSeg);
     void renderSegmentReversed(int iSeg);
     void CalcSegmentPositions();

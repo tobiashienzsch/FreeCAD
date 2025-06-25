@@ -52,7 +52,7 @@ public:
     void onDocumentRestored() override;
     void unsetupObject() override;
 
-    void postHlrTasks(void) override;
+    void postHlrTasks() override;
 
     DrawProjGroup* getPGroup() const;
     double getRotateAngle();

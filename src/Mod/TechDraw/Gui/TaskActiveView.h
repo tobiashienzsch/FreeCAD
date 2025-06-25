@@ -67,7 +67,7 @@ protected:
     void changeEvent(QEvent *e) override;
 
     void blockButtons(bool b);
-    void setUiPrimary(void);
+    void setUiPrimary();
 
     TechDraw::DrawViewImage* createActiveView();
     void enableCrop(bool state);

@@ -303,7 +303,7 @@ namespace App
 /// @cond DOXERR
 PROPERTY_SOURCE_TEMPLATE(Fem::PostFilterPython, Fem::FemPostFilter)
 template<>
-const char* Fem::PostFilterPython::getViewProviderName(void) const
+const char* Fem::PostFilterPython::getViewProviderName() const
 {
     return "FemGui::ViewProviderPostFilterPython";
 }

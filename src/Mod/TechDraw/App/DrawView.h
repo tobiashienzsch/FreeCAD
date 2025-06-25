@@ -98,27 +98,30 @@ public:
     virtual bool checkFit(DrawPage*) const;
     virtual void setPosition(double x, double y, bool force = false);
     virtual Base::Vector3d getPosition() const { return Base::Vector3d(X.getValue(), Y.getValue(), 0.0); }
-    virtual bool keepUpdated(void);
+    virtual bool keepUpdated();
 
     boost::signals2::signal<void (const DrawView*)> signalGuiPaint;
     boost::signals2::signal<void (const DrawView*, std::string, std::string)> signalProgressMessage;
-    void requestPaint(void);
+    void requestPaint();
     void showProgressMessage(std::string featureName, std::string text);
 
-    virtual double getScale(void) const;
+    virtual double getScale() const;
     virtual int getScaleType() const { return ScaleType.getValue(); };
-    void checkScale(void);
+    void checkScale();
 
-    virtual void handleXYLock(void);
-    virtual bool isLocked(void) const;
-    virtual bool showLock(void) const;
+    virtual void handleXYLock();
+    virtual bool isLocked() const;
+    virtual bool showLock() const;
 
-    std::vector<TechDraw::DrawLeaderLine*> getLeaders(void) const;
+    std::vector<TechDraw::DrawLeaderLine*> getLeaders() const;
 
     void setScaleAttribute();
 
     void overrideKeepUpdated(bool s) { m_overrideKeepUpdated = s; }
-    bool overrideKeepUpdated(void) { return m_overrideKeepUpdated; }
+    bool overrideKeepUpdated()
+    {
+        return m_overrideKeepUpdated;
+    }
 
     void translateLabel(std::string context, std::string baseName, std::string uniqueName);
 

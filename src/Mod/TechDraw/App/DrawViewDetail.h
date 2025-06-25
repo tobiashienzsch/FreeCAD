@@ -81,12 +81,15 @@ public:
     void makeDetailShape(const TopoDS_Shape& shape,
                          DrawViewPart* dvp,
                          DrawViewSection* dvs);
-    void postHlrTasks(void) override;
+    void postHlrTasks() override;
     void waitingForDetail(bool s) { m_waitingForDetail = s; }
-    bool waitingForDetail(void) const { return m_waitingForDetail; }
+    bool waitingForDetail() const
+    {
+        return m_waitingForDetail;
+    }
     bool waitingForResult() const override;
 
-    double getFudgeRadius(void);
+    double getFudgeRadius();
     TopoDS_Shape projectEdgesOntoFace(TopoDS_Shape& edgeShape,
                                       TopoDS_Face& projFace,
                                       gp_Dir& projDir);
@@ -97,10 +100,10 @@ public:
     Base::Vector3d mapPoint3dToDetail(const Base::Vector3d& inPoint) const;
 
 public Q_SLOTS:
-    void onMakeDetailFinished(void);
+    void onMakeDetailFinished();
 
 protected:
-    void getParameters(void);
+    void getParameters();
     double m_fudge;
     bool debugDetail() const;
 

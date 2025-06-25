@@ -5204,7 +5204,7 @@ GeomElementarySurface::~GeomElementarySurface()
 {
 }
 
-Base::Vector3d GeomElementarySurface::getLocation(void) const
+Base::Vector3d GeomElementarySurface::getLocation() const
 {
     Handle(Geom_ElementarySurface) surf = Handle(Geom_ElementarySurface)::DownCast(handle());
     gp_Pnt loc = surf->Location();
@@ -5226,21 +5226,21 @@ std::optional<Base::Rotation> GeomPlane::getRotation() const
     return Base::Rotation(q.X(),q.Y(),q.Z(),q.W());
 }
 
-Base::Vector3d GeomElementarySurface::getDir(void) const
+Base::Vector3d GeomElementarySurface::getDir() const
 {
     Handle(Geom_ElementarySurface) surf =  Handle(Geom_ElementarySurface)::DownCast(handle());
     const gp_Dir &dir = surf->Position().Direction();
     return Base::Vector3d(dir.X(),dir.Y(),dir.Z());
 }
 
-Base::Vector3d GeomElementarySurface::getXDir(void) const
+Base::Vector3d GeomElementarySurface::getXDir() const
 {
     Handle(Geom_ElementarySurface) surf =  Handle(Geom_ElementarySurface)::DownCast(handle());
     const gp_Dir &dir = surf->Position().XDirection();
     return Base::Vector3d(dir.X(),dir.Y(),dir.Z());
 }
 
-Base::Vector3d GeomElementarySurface::getYDir(void) const
+Base::Vector3d GeomElementarySurface::getYDir() const
 {
     Handle(Geom_ElementarySurface) surf =  Handle(Geom_ElementarySurface)::DownCast(handle());
     const gp_Dir &dir = surf->Position().YDirection();
@@ -5933,7 +5933,7 @@ GeomSweptSurface::~GeomSweptSurface()
 {
 }
 
-Base::Vector3d GeomSweptSurface::getDir(void) const
+Base::Vector3d GeomSweptSurface::getDir() const
 {
     Handle(Geom_SweptSurface) surf =  Handle(Geom_SweptSurface)::DownCast(handle());
     const gp_Dir &dir = surf->Direction();

@@ -677,7 +677,7 @@ void CmdTechDrawBrokenView::activated(int iMsg)
     dbv->recomputeFeature();
 }
 
-bool CmdTechDrawBrokenView::isActive(void)
+bool CmdTechDrawBrokenView::isActive()
 {
     return DrawGuiUtil::needPage(this);
 }

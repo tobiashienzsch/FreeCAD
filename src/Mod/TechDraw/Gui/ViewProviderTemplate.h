@@ -55,9 +55,9 @@ public:
     void hide() override;
     void show() override;
     bool isShow() const override;
-    QGITemplate* getQTemplate(void);
+    QGITemplate* getQTemplate();
     TechDraw::DrawTemplate* getTemplate() const;
-    MDIViewPage* getMDIViewPage(void) const;
+    MDIViewPage* getMDIViewPage() const;
     Gui::MDIView *getMDIView() const override;
 
     void setMarkers(bool state);

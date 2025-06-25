@@ -58,7 +58,7 @@ PROPERTY_SOURCE(TechDraw::DrawPage, App::DocumentObject)
 
 const char* DrawPage::ProjectionTypeEnums[] = {"First Angle", "Third Angle", nullptr};
 
-DrawPage::DrawPage(void)
+DrawPage::DrawPage()
 {
     static const char* group = "Page";
     nowUnsetting = false;
@@ -140,7 +140,10 @@ void DrawPage::onChanged(const App::Property* prop)
 }
 
 //Page is just a container. It doesn't "do" anything.
-App::DocumentObjectExecReturn* DrawPage::execute(void) { return App::DocumentObject::execute(); }
+App::DocumentObjectExecReturn* DrawPage::execute()
+{
+    return App::DocumentObject::execute();
+}
 
 // this is now irrelevant, b/c DP::execute doesn't do anything.
 short DrawPage::mustExecute() const
@@ -158,7 +161,7 @@ short DrawPage::mustExecute() const
     return App::DocumentObject::mustExecute();
 }
 
-PyObject* DrawPage::getPyObject(void)
+PyObject* DrawPage::getPyObject()
 {
     if (PythonObject.is(Py::_None())) {
         // ref counter is set to 1
@@ -311,7 +314,10 @@ int DrawPage::removeView(App::DocumentObject* docObj)
     return Views.getSize();
 }
 
-void DrawPage::requestPaint(void) { signalGuiPaint(this); }
+void DrawPage::requestPaint()
+{
+    signalGuiPaint(this);
+}
 
 //this doesn't work right because there is no guaranteed of the restoration order
 void DrawPage::onDocumentRestored()
@@ -454,7 +460,7 @@ void DrawPage::unsetupObject()
     Template.setValue(nullptr);
 }
 
-int DrawPage::getNextBalloonIndex(void)
+int DrawPage::getNextBalloonIndex()
 {
     int result = NextBalloonIndex.getValue();
     int newValue = result + 1;
@@ -506,13 +512,13 @@ bool DrawPage::hasObject(App::DocumentObject* obj)
 }
 
 //allow/prevent drawing updates for all Pages
-bool DrawPage::GlobalUpdateDrawings(void)
+bool DrawPage::GlobalUpdateDrawings()
 {
     return Preferences::getPreferenceGroup("General")->GetBool("GlobalUpdateDrawings", true);
 }
 
 //allow/prevent a single page to update despite GlobalUpdateDrawings setting
-bool DrawPage::AllowPageOverride(void)
+bool DrawPage::AllowPageOverride()
 {
     return Preferences::getPreferenceGroup("General")->GetBool("AllowPageOverride", true);
 }
@@ -531,7 +537,8 @@ namespace App
 {
 /// @cond DOXERR
 PROPERTY_SOURCE_TEMPLATE(TechDraw::DrawPagePython, TechDraw::DrawPage)
-template<> const char* TechDraw::DrawPagePython::getViewProviderName(void) const
+template<>
+const char* TechDraw::DrawPagePython::getViewProviderName() const
 {
     return "TechDrawGui::ViewProviderPage";
 }

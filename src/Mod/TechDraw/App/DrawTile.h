@@ -47,13 +47,14 @@ public:
     App::PropertyInteger      TileColumn;
 
     short mustExecute() const override;
-    App::DocumentObjectExecReturn *execute(void) override;
+    App::DocumentObjectExecReturn* execute() override;
 
-    const char* getViewProviderName(void) const override {
+    const char* getViewProviderName() const override
+    {
         return "TechDrawGui::ViewProviderTile";
     }
-    PyObject *getPyObject(void) override;
-    virtual DrawView* getParent(void) const;
+    PyObject* getPyObject() override;
+    virtual DrawView* getParent() const;
 
 protected:
     void onChanged(const App::Property* prop) override;

@@ -46,7 +46,7 @@ MeasureBase::MeasureBase()
 }
 
 
-PyObject* MeasureBase::getPyObject(void)
+PyObject* MeasureBase::getPyObject()
 {
     if (PythonObject.is(Py::_None())) {
         // ref counter is set to 1
@@ -207,7 +207,7 @@ namespace App
 /// @cond DOXERR
 PROPERTY_SOURCE_TEMPLATE(Measure::MeasurePython, Measure::MeasureBase)
 template<>
-const char* Measure::MeasurePython::getViewProviderName(void) const
+const char* Measure::MeasurePython::getViewProviderName() const
 {
     return "MeasureGui::ViewProviderMeasure";
 }

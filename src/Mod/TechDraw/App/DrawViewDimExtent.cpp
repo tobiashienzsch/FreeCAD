@@ -44,7 +44,7 @@ using namespace TechDraw;
 
 PROPERTY_SOURCE(TechDraw::DrawViewDimExtent, TechDraw::DrawViewDimension)
 
-DrawViewDimExtent::DrawViewDimExtent(void)
+DrawViewDimExtent::DrawViewDimExtent()
 {
     App::PropertyLinkSubList       Source;                       //DrawViewPart & SubElements(Edges)
     App::PropertyLinkSubList       Source3d;                     //Part::Feature(s) & SubElements
@@ -62,7 +62,7 @@ DrawViewDimExtent::DrawViewDimExtent(void)
 
 }
 
-App::DocumentObjectExecReturn *DrawViewDimExtent::execute(void)
+App::DocumentObjectExecReturn* DrawViewDimExtent::execute()
 {
 //    Base::Console().message("DVDE::execute() - %s\n", getNameInDocument());
     if (!keepUpdated()) {
@@ -145,7 +145,7 @@ pointPair DrawViewDimExtent::getPointsExtent(ReferenceVector references)
     return pointPair(endPoints.first, endPoints.second);
 }
 
-PyObject *DrawViewDimExtent::getPyObject(void)
+PyObject* DrawViewDimExtent::getPyObject()
 {
     if (PythonObject.is(Py::_None())) {
         // ref counter is set to 1

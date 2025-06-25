@@ -173,7 +173,7 @@ DlgSettingsLightSources::DlgSettingsLightSources(QWidget* parent)
     DlgSettingsLightSources::loadSettings();
 }
 
-static inline SoMaterial* createMaterial(void)
+static inline SoMaterial* createMaterial()
 {
     const QColor ambientColor {0xff333333}, diffuseColor {0xffd2d2ff}, emissiveColor {0xff000000},
         specularColor {0xffcccccc};
@@ -190,7 +190,7 @@ static inline SoMaterial* createMaterial(void)
     return material;
 }
 
-static inline SoSphere* createSphere(void)
+static inline SoSphere* createSphere()
 {
     auto sphere = new SoSphere();
     sphere->radius = 3;

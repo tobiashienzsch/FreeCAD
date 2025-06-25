@@ -57,7 +57,7 @@ public:
     ~PropertyCosmeticVertexList() override;
 
     void setSize(int newSize) override;
-    int getSize(void) const override;
+    int getSize() const override;
 
     /** Sets the property
      */

@@ -223,7 +223,10 @@ QGVPage::~QGVPage()
     d->detach();
 }
 
-void QGVPage::centerOnPage(void) { centerOn(m_vpPage->getQGSPage()->getTemplateCenter()); }
+void QGVPage::centerOnPage()
+{
+    centerOn(m_vpPage->getQGSPage()->getTemplateCenter());
+}
 
 void QGVPage::initNavigationStyle()
 {

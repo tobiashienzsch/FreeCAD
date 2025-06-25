@@ -44,7 +44,7 @@ public:
     ~ViewProviderSpreadsheet() override;
 
     App::PropertyBool ClaimSheetAsChild;
-    std::vector<App::DocumentObject*> claimChildren(void) const override;
+    std::vector<App::DocumentObject*> claimChildren() const override;
 
     bool useNewSelectionModel() const override {return false;}
 

@@ -84,7 +84,7 @@ public:
 protected:
     void draw() override;
     void setLineSpacing(int lineSpacing);
-    QFont prefFont(void);
+    QFont prefFont();
 
     void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override;
 

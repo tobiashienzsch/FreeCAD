@@ -978,7 +978,7 @@ void ExpressionLineEdit::setExactMatch(bool enabled)
     }
 }
 
-ExpressionCompleter *ExpressionLineEdit::getCompleter(void)
+ExpressionCompleter* ExpressionLineEdit::getCompleter()
 {
     return this->completer;
 }

@@ -255,7 +255,7 @@ void QGIViewPart::drawViewPart()
     drawAllVertexes();
 }
 
-void QGIViewPart::drawAllFaces(void)
+void QGIViewPart::drawAllFaces()
 {
     // dvp already validated
     auto dvp(static_cast<TechDraw::DrawViewPart*>(getViewObject()));

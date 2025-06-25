@@ -345,7 +345,7 @@ QMap<QString, CallTip> CallTipsList::extractTips(const QString& context) const
     return tips;
 }
 
-bool shibokenMayCrash(void)
+bool shibokenMayCrash()
 {
     // Shiboken 6.4.8 to 6.7.3 crash if we try to read their object
     // attributes without a current stack frame.

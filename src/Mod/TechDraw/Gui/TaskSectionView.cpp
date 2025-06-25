@@ -484,7 +484,7 @@ void TaskSectionView::applyAligned()
 
 //*********************************************************************
 
-TechDraw::DrawViewSection* TaskSectionView::createSectionView(void)
+TechDraw::DrawViewSection* TaskSectionView::createSectionView()
 {
     if (!isBaseValid()) {
         failNoObject();
@@ -633,7 +633,7 @@ std::string TaskSectionView::makeSectionLabel(QString symbol)
     return ( uniqueLabel + " " + temp + " - " + temp );
 }
 
-void TaskSectionView::failNoObject(void)
+void TaskSectionView::failNoObject()
 {
     QString qsectionName = QString::fromStdString(m_sectionName);
     QString qbaseName = QString::fromStdString(m_baseName);

@@ -61,12 +61,13 @@ public:
     virtual QString getAutofillValue(const QString &id) const;
 
     /// returns the type name of the ViewProvider
-    const char* getViewProviderName(void) const override{
+    const char* getViewProviderName() const override
+    {
         return "TechDrawGui::ViewProviderTemplate";
     }
 
     // from base class
-    PyObject *getPyObject(void) override;
+    PyObject* getPyObject() override;
 
     class Autofill
     {

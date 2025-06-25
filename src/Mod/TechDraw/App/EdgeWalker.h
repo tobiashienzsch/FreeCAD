@@ -90,7 +90,7 @@ public:
     std::vector<WalkerEdge>  wedges;      //[WE] representing 1 wire
     void push_back(WalkerEdge w);
     void clear() {wedges.clear();}
-    std::size_t size(void);
+    std::size_t size();
 };
 
 class TechDrawExport ewWireList
@@ -100,7 +100,7 @@ public:
 
     std::vector<ewWire> wires;
     void push_back(ewWire e);
-    std::size_t size(void);
+    std::size_t size();
 };
 
 

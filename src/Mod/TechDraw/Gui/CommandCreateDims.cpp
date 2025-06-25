@@ -2233,7 +2233,7 @@ void CmdTechDrawDimensionRepair::activated(int iMsg)
     Gui::Control().showDialog(new TaskDlgDimReference(dim));
 }
 
-bool CmdTechDrawDimensionRepair::isActive(void)
+bool CmdTechDrawDimensionRepair::isActive()
 {
     bool havePage = DrawGuiUtil::needPage(this);
     bool haveView = DrawGuiUtil::needView(this);

@@ -136,7 +136,7 @@ void CmdTechDrawAlignVertexesVertically::activated(int iMsg)
     CmdTechDrawAlignByRotation(Vertical);
 }
 
-bool CmdTechDrawAlignVertexesVertically::isActive(void)
+bool CmdTechDrawAlignVertexesVertically::isActive()
 {
     bool havePage = DrawGuiUtil::needPage(this);
     bool haveView = DrawGuiUtil::needView(this, false);
@@ -169,7 +169,7 @@ void CmdTechDrawAlignVertexesHorizontally::activated(int iMsg)
     CmdTechDrawAlignByRotation(Horizontal);
 }
 
-bool CmdTechDrawAlignVertexesHorizontally::isActive(void)
+bool CmdTechDrawAlignVertexesHorizontally::isActive()
 {
     bool havePage = DrawGuiUtil::needPage(this);
     bool haveView = DrawGuiUtil::needView(this, false);
@@ -177,7 +177,7 @@ bool CmdTechDrawAlignVertexesHorizontally::isActive(void)
 }
 
 
-void CreateTechDrawCommandsAlign(void)
+void CreateTechDrawCommandsAlign()
 {
     Gui::CommandManager& rcCmdMgr = Gui::Application::Instance->commandManager();
 

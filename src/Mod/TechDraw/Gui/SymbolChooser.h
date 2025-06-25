@@ -52,7 +52,7 @@ Q_SIGNALS:
                         QString source);
 
 protected:
-    void setUiPrimary(void);
+    void setUiPrimary();
     void loadSymbolNames(QString pathToSymbols);
 
 private:

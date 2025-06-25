@@ -46,7 +46,7 @@ class TechDrawGuiExport QGMText : public QGCustomText
 Q_OBJECT
 
 public:
-    explicit QGMText(void);
+    explicit QGMText();
     ~QGMText() override = default;
 
     enum {Type = UserType::QGMText};

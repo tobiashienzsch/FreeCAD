@@ -58,13 +58,12 @@ Q_SIGNALS:
                                  /// used to show the zoom level in the zoom button.
 
 public Q_SLOTS:
-    void zoomIn(void);  /// This function is the slot for the zoomIn button and a keyboard shortcut
-    void
-    zoomOut(void);  /// This function is the slot for the zoomOut button and a keyboard shortcut
-    void resetZoom(void);  /// This function is the slot for a keyboard shortcut
+    void zoomIn();     /// This function is the slot for the zoomIn button and a keyboard shortcut
+    void zoomOut();    /// This function is the slot for the zoomOut button and a keyboard shortcut
+    void resetZoom();  /// This function is the slot for a keyboard shortcut
 
 private:
-    void updateView(void);
+    void updateView();
 
     QPointer<SpreadsheetGui::SheetTableView> stv;
     QGraphicsScene m_scene;

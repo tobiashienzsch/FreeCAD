@@ -48,7 +48,7 @@ public:
     bool useNewSelectionModel() const override { return false; }
     void updateData(const App::Property*) override;
 
-    std::vector<App::DocumentObject*> claimChildren(void) const override;
+    std::vector<App::DocumentObject*> claimChildren() const override;
 
     TechDraw::DrawViewAnnotation* getViewObject() const override;
 
