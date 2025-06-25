@@ -23,7 +23,7 @@
 #include "SimShapes.h"
 #include "Shader.h"
 #include "GlUtils.h"
-#include <math.h>
+#include <cmath>
 #include <cstddef>
 #include <vector>
 
