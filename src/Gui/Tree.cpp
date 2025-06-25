@@ -41,6 +41,7 @@
 # include <QTimer>
 # include <QToolTip>
 # include <QVBoxLayout>
+# include <memory>
 #endif
 
 #include <Base/Console.h>
@@ -393,7 +394,7 @@ public:
             auto& entry = (*this)[reader.getAttribute<const char*>("name")];
             if (!reader.hasAttribute("count"))
                 continue;
-            entry.reset(new ExpandInfo);
+            entry = std::make_shared<ExpandInfo>();
             entry->restore(reader);
         }
         reader.readEndElement("Expand", level - 1);
@@ -4579,7 +4580,7 @@ void DocumentItem::Restore(Base::XMLReader& reader) {
     reader.readElement("Expand");
     if (!reader.hasAttribute("count"))
         return;
-    _ExpandInfo.reset(new ExpandInfo);
+    _ExpandInfo = std::make_shared<ExpandInfo>();
     _ExpandInfo->restore(reader);
     for (auto inst : TreeWidget::Instances) {
         if (inst != getTree()) {
@@ -4616,7 +4617,7 @@ void DocumentItem::slotExpandObject(const Gui::ViewProviderDocumentObject& obj,
         mode == TreeItemMode::ExpandPath) &&
         obj.getDocument()->getDocument()->testStatus(App::Document::Restoring)) {
         if (!_ExpandInfo)
-            _ExpandInfo.reset(new ExpandInfo);
+            _ExpandInfo = std::make_shared<ExpandInfo>();
         _ExpandInfo->emplace(std::string("*") + obj.getObject()->getNameInDocument(), ExpandInfoPtr());
         return;
     }

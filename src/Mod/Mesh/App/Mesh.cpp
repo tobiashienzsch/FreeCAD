@@ -23,6 +23,7 @@
 #include "PreCompiled.h"
 #ifndef _PreComp_
 #include <algorithm>
+#include <memory>
 #include <sstream>
 #endif
 
@@ -2089,25 +2090,25 @@ std::vector<Segment> MeshObject::getSegmentsOfType(MeshObject::GeometryType type
     std::shared_ptr<MeshCore::MeshDistanceSurfaceSegment> surf;
     switch (type) {
         case PLANE:
-            surf.reset(
-                new MeshCore::MeshDistanceGenericSurfaceFitSegment(new MeshCore::PlaneSurfaceFit,
-                                                                   this->_kernel,
-                                                                   minFacets,
-                                                                   dev));
+            surf = std::make_shared<MeshCore::MeshDistanceGenericSurfaceFitSegment>(
+                new MeshCore::PlaneSurfaceFit,
+                this->_kernel,
+                minFacets,
+                dev);
             break;
         case CYLINDER:
-            surf.reset(
-                new MeshCore::MeshDistanceGenericSurfaceFitSegment(new MeshCore::CylinderSurfaceFit,
-                                                                   this->_kernel,
-                                                                   minFacets,
-                                                                   dev));
+            surf = std::make_shared<MeshCore::MeshDistanceGenericSurfaceFitSegment>(
+                new MeshCore::CylinderSurfaceFit,
+                this->_kernel,
+                minFacets,
+                dev);
             break;
         case SPHERE:
-            surf.reset(
-                new MeshCore::MeshDistanceGenericSurfaceFitSegment(new MeshCore::SphereSurfaceFit,
-                                                                   this->_kernel,
-                                                                   minFacets,
-                                                                   dev));
+            surf = std::make_shared<MeshCore::MeshDistanceGenericSurfaceFitSegment>(
+                new MeshCore::SphereSurfaceFit,
+                this->_kernel,
+                minFacets,
+                dev);
             break;
         default:
             break;

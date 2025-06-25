@@ -57,6 +57,7 @@
 #include <BRepTools_History.hxx>
 #include <ShapeBuild_ReShape.hxx>
 
+#include <memory>
 #include <unordered_map>
 #include <unordered_set>
 #include <deque>
@@ -1699,7 +1700,7 @@ public:
                 // has been replaced with the precompiler macro assert()
 
                 assert(!beginInfo.wireInfo);
-                beginInfo.wireInfo.reset(new WireInfo());
+                beginInfo.wireInfo = std::make_shared<WireInfo>();
                 beginInfo.wireInfo->vertices.emplace_back(it, true);
                 beginInfo.wireInfo->wire = wire;
             }
@@ -2070,7 +2071,7 @@ public:
             if (info->wireInfo == wireInfo) {
                 if (!splitWire) {
                     idxStart = idx;
-                    splitWire.reset(new WireInfo());
+                    splitWire = std::make_shared<WireInfo>();
                 }
                 info->wireInfo = splitWire;
             }
@@ -2203,7 +2204,7 @@ public:
                 }
             }
 
-            newWire.reset(new WireInfo());
+            newWire = std::make_shared<WireInfo>();
             auto& newWireVertices = newWire->vertices;
             newWireVertices.push_back(beginVertex);
             for (auto& entry : stack) {
@@ -2439,7 +2440,7 @@ public:
                 }
             }
 
-            newWire.reset(new WireInfo());
+            newWire = std::make_shared<WireInfo>();
             auto& newWireVertices = newWire->vertices;
             newWireVertices.push_back(beginVertex);
             for (auto& entry : stack) {

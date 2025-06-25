@@ -24,6 +24,7 @@
 #include "PreCompiled.h"
 
 #ifndef _PreComp_
+# include <memory>
 # include <sstream>
 # include <QAbstractSpinBox>
 # include <QByteArray>
@@ -93,7 +94,7 @@ bool GUIApplication::notify (QObject * receiver, QEvent * event)
             return QApplication::notify(receiver, event);
     }
     catch (const Base::SystemExitException &e) {
-        caughtException.reset(new Base::SystemExitException(e));
+        caughtException = std::make_shared<Base::SystemExitException>(e);
         qApp->exit(e.getExitCode());
         return true;
     }
