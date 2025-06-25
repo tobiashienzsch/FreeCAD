@@ -38,6 +38,7 @@
 # include <TopExp_Explorer.hxx>
 # include <QtGlobal>
 # include <TopExp.hxx>
+# include <memory>
 #endif
 
 #include "FaceMakerBullseye.h"
@@ -288,7 +289,7 @@ void FaceMakerBullseye::FaceDriller::addHole(const WireInfo& wireInfo,
     }
 
     if (!myJoiner) {
-        myJoiner.reset(new WireJoiner);
+        myJoiner = std::make_unique<WireJoiner>();
         myJoiner->setOutline(true);
     }
     myJoiner->addShape(wireInfo.wire);

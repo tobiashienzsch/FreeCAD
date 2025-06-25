@@ -6729,53 +6729,52 @@ std::unique_ptr<GeomSurface> makeFromSurfaceAdaptor(const BRepAdaptor_Surface& a
     {
     case GeomAbs_Plane:
         {
-            geoSurf.reset(new GeomPlane());
-            Handle(Geom_Plane) this_surf = Handle(Geom_Plane)::DownCast
-                (geoSurf->handle());
-            this_surf->SetPln(adapt.Plane());
-            break;
+        geoSurf = std::make_unique<GeomPlane>();
+        Handle(Geom_Plane) this_surf = Handle(Geom_Plane)::DownCast(geoSurf->handle());
+        this_surf->SetPln(adapt.Plane());
+        break;
         }
     case GeomAbs_Cylinder:
         {
-            geoSurf.reset(new GeomCylinder());
-            Handle(Geom_CylindricalSurface) this_surf = Handle(Geom_CylindricalSurface)::DownCast
-                (geoSurf->handle());
-            this_surf->SetCylinder(adapt.Cylinder());
-            break;
+        geoSurf = std::make_unique<GeomCylinder>();
+        Handle(Geom_CylindricalSurface) this_surf =
+            Handle(Geom_CylindricalSurface)::DownCast(geoSurf->handle());
+        this_surf->SetCylinder(adapt.Cylinder());
+        break;
         }
     case GeomAbs_Cone:
         {
-            geoSurf.reset(new GeomCone());
-            Handle(Geom_ConicalSurface) this_surf = Handle(Geom_ConicalSurface)::DownCast
-                (geoSurf->handle());
-            this_surf->SetCone(adapt.Cone());
-            break;
+        geoSurf = std::make_unique<GeomCone>();
+        Handle(Geom_ConicalSurface) this_surf =
+            Handle(Geom_ConicalSurface)::DownCast(geoSurf->handle());
+        this_surf->SetCone(adapt.Cone());
+        break;
         }
     case GeomAbs_Sphere:
         {
-            geoSurf.reset(new GeomSphere());
-            Handle(Geom_SphericalSurface) this_surf = Handle(Geom_SphericalSurface)::DownCast
-                (geoSurf->handle());
-            this_surf->SetSphere(adapt.Sphere());
-            break;
+        geoSurf = std::make_unique<GeomSphere>();
+        Handle(Geom_SphericalSurface) this_surf =
+            Handle(Geom_SphericalSurface)::DownCast(geoSurf->handle());
+        this_surf->SetSphere(adapt.Sphere());
+        break;
         }
     case GeomAbs_Torus:
         {
-            geoSurf.reset(new GeomToroid());
-            Handle(Geom_ToroidalSurface) this_surf = Handle(Geom_ToroidalSurface)::DownCast
-                (geoSurf->handle());
-            this_surf->SetTorus(adapt.Torus());
-            break;
+        geoSurf = std::make_unique<GeomToroid>();
+        Handle(Geom_ToroidalSurface) this_surf =
+            Handle(Geom_ToroidalSurface)::DownCast(geoSurf->handle());
+        this_surf->SetTorus(adapt.Torus());
+        break;
         }
     case GeomAbs_BezierSurface:
         {
-            geoSurf.reset(new GeomBezierSurface(adapt.Bezier()));
-            break;
+        geoSurf = std::make_unique<GeomBezierSurface>(adapt.Bezier());
+        break;
         }
     case GeomAbs_BSplineSurface:
         {
-            geoSurf.reset(new GeomBSplineSurface(adapt.BSpline()));
-            break;
+        geoSurf = std::make_unique<GeomBSplineSurface>(adapt.BSpline());
+        break;
         }
     case GeomAbs_SurfaceOfRevolution:
         {
@@ -6786,7 +6785,7 @@ std::unique_ptr<GeomSurface> makeFromSurfaceAdaptor(const BRepAdaptor_Surface& a
                 rev = Handle(Geom_SurfaceOfRevolution)::DownCast(rect->BasisSurface());
             }
             if (!rev.IsNull())
-                geoSurf.reset(new GeomSurfaceOfRevolution(rev));
+                geoSurf = std::make_unique<GeomSurfaceOfRevolution>(rev);
             break;
         }
     case GeomAbs_SurfaceOfExtrusion:
@@ -6798,7 +6797,7 @@ std::unique_ptr<GeomSurface> makeFromSurfaceAdaptor(const BRepAdaptor_Surface& a
                 ext = Handle(Geom_SurfaceOfLinearExtrusion)::DownCast(rect->BasisSurface());
             }
             if (!ext.IsNull())
-                geoSurf.reset(new GeomSurfaceOfExtrusion(ext));
+                geoSurf = std::make_unique<GeomSurfaceOfExtrusion>(ext);
             break;
         }
     case GeomAbs_OffsetSurface:
@@ -6810,7 +6809,7 @@ std::unique_ptr<GeomSurface> makeFromSurfaceAdaptor(const BRepAdaptor_Surface& a
                 off = Handle(Geom_OffsetSurface)::DownCast(rect->BasisSurface());
             }
             if (!off.IsNull())
-                geoSurf.reset(new GeomOffsetSurface(off));
+                geoSurf = std::make_unique<GeomOffsetSurface>(off);
             break;
         }
     default:

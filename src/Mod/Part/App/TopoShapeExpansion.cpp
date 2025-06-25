@@ -80,6 +80,7 @@
 #include <ShapeFix_ShapeTolerance.hxx>
 #include <gp_Pln.hxx>
 
+#include <memory>
 #include <utility>
 
 #endif
@@ -5746,16 +5747,16 @@ TopoShape& TopoShape::makeElementBoolean(const char* maker,
 
     std::unique_ptr<BRepAlgoAPI_BooleanOperation> mk;
     if (strcmp(maker, Part::OpCodes::Fuse) == 0) {
-        mk.reset(new FCBRepAlgoAPI_Fuse);
+        mk = std::make_unique<FCBRepAlgoAPI_Fuse>();
     }
     else if (strcmp(maker, Part::OpCodes::Cut) == 0) {
-        mk.reset(new FCBRepAlgoAPI_Cut);
+        mk = std::make_unique<FCBRepAlgoAPI_Cut>();
     }
     else if (strcmp(maker, Part::OpCodes::Common) == 0) {
-        mk.reset(new FCBRepAlgoAPI_Common);
+        mk = std::make_unique<FCBRepAlgoAPI_Common>();
     }
     else if (strcmp(maker, Part::OpCodes::Section) == 0) {
-        mk.reset(new FCBRepAlgoAPI_Section);
+        mk = std::make_unique<FCBRepAlgoAPI_Section>();
         buildShell = false;
     }
     else {

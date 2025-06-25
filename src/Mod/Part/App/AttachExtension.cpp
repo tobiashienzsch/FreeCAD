@@ -22,6 +22,8 @@
 
 #include "PreCompiled.h"
 
+#include <memory>
+
 #include <Base/Console.h>
 #include <Base/Tools.h>
 
@@ -150,7 +152,7 @@ AttachExtension::AttachExtension()
     _props.mapPathParameter = &MapPathParameter;
 
     setAttacher(new AttachEngine3D);  // default attacher
-    _baseProps.attacher.reset(new AttachEngine3D);
+    _baseProps.attacher = std::make_unique<AttachEngine3D>();
 
     updatePropertyStatus(false);
 

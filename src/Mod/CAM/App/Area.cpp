@@ -27,6 +27,7 @@
 
 #ifndef _PreComp_
 #include <limits>
+#include <memory>
 
 #include <boost/geometry.hpp>
 #include <boost/geometry/geometries/register/point.hpp>
@@ -749,7 +750,7 @@ std::shared_ptr<Area> Area::getRestArea(std::vector<std::shared_ptr<Area>> clear
 
     // transform all clearedAreas into our workplane
     Area clearedAreasInPlane(&params);
-    clearedAreasInPlane.myArea.reset(new CArea());
+    clearedAreasInPlane.myArea = std::make_unique<CArea>();
     for (std::shared_ptr<Area> clearedArea : clearedAreas) {
         gp_Trsf trsf = clearedArea->myTrsf;
         trsf.Invert();

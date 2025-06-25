@@ -49,6 +49,7 @@
 #include "SketcherSettings.h"
 #include "ui_InsertDatum.h"
 
+#include <memory>
 #include <numeric>
 
 
@@ -110,7 +111,7 @@ int EditDatumDialog::exec(bool atCursor)
 
         QDialog dlg(Gui::getMainWindow());
         if (!ui_ins_datum) {
-            ui_ins_datum.reset(new Ui_InsertDatum);
+            ui_ins_datum = std::make_unique<Ui_InsertDatum>();
             ui_ins_datum->setupUi(&dlg);
         }
         double datum = Constr->getValue();
