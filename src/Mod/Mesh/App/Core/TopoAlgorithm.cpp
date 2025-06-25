@@ -258,8 +258,7 @@ cos_maxangle(const Base::Vector3f& v1, const Base::Vector3f& v2, const Base::Vec
     float A = a * (b * b + c * c - a * a);
     float B = b * (c * c + a * a - b * b);
     float C = c * (a * a + b * b - c * c);
-    return 0.5F * std::min<float>(std::min<float>(A, B), C)
-        / (a * b * c);  // min cosine == max angle
+    return 0.5F * std::min<float>({A, B, C}) / (a * b * c);  // min cosine == max angle
 }
 
 static float swap_benefit(const Base::Vector3f& v1,

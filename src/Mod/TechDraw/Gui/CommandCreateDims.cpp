@@ -23,6 +23,7 @@
 
 #include "PreCompiled.h"
 #ifndef _PreComp_
+#include <algorithm>
 #include <cmath>
 #include <limits>
 #include <string>
@@ -1274,10 +1275,10 @@ protected:
             Base::Vector3d pnt1 = Rez::guiX(pp.first());
             Base::Vector3d pnt2 = Rez::guiX(pp.second());
 
-            minX = min(minX, min(pnt1.x, pnt2.x));
-            maxX = max(maxX, max(pnt1.x, pnt2.x));
-            minY = min(minY, min(pnt1.y, pnt2.y));
-            maxY = max(maxY, max(pnt1.y, pnt2.y));
+            minX = std::min({minX, pnt1.x, pnt2.x});
+            maxX = std::max({maxX, pnt1.x, pnt2.x});
+            minY = std::min({minY, pnt1.y, pnt2.y});
+            maxY = std::max({maxY, pnt1.y, pnt2.y});
         }
 
         QPointF fpos = getDimPositionToBe(mousePos);

@@ -21,6 +21,7 @@
 
 #include "PreCompiled.h"
 
+#include <algorithm>
 #include <vector>
 
 #include <App/Application.h>
@@ -186,8 +187,8 @@ void PathSegmentWalker::walk(PathSegmentVisitor& cb, const Base::Vector3d& start
         if ((name == "G0") || (name == "G00") || (name == "G1") || (name == "G01")) {
             // straight line
             if (nrot != lrot) {
-                double amax = std::max(fmod(fabs(a - A), 360),
-                                       std::max(fmod(fabs(b - B), 360), fmod(fabs(c - C), 360)));
+                double amax = std::max(
+                    {fmod(fabs(a - A), 360), fmod(fabs(b - B), 360), fmod(fabs(c - C), 360)});
                 double angle = Base::toRadians(amax);
                 int segments = std::max(ARC_MIN_SEGMENTS, 3.0 / (deviation / angle));
 
@@ -262,8 +263,8 @@ void PathSegmentWalker::walk(PathSegmentVisitor& cb, const Base::Vector3d& start
                 angle = std::numbers::pi * 2;
             }
 
-            double amax = std::max(fmod(fabs(a - A), 360),
-                                   std::max(fmod(fabs(b - B), 360), fmod(fabs(c - C), 360)));
+            double amax =
+                std::max({fmod(fabs(a - A), 360), fmod(fabs(b - B), 360), fmod(fabs(c - C), 360)});
 
             int segments = std::max(
                 ARC_MIN_SEGMENTS,
@@ -328,8 +329,8 @@ void PathSegmentWalker::walk(PathSegmentVisitor& cb, const Base::Vector3d& start
             p1.*pz = last.*pz;
 
             if (nrot != lrot) {
-                double amax = std::max(fmod(fabs(a - A), 360),
-                                       std::max(fmod(fabs(b - B), 360), fmod(fabs(c - C), 360)));
+                double amax = std::max(
+                    {fmod(fabs(a - A), 360), fmod(fabs(b - B), 360), fmod(fabs(c - C), 360)});
                 double angle = Base::toRadians(amax);
                 int segments = std::max(ARC_MIN_SEGMENTS, 3.0 / (deviation / angle));
 

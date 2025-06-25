@@ -23,6 +23,7 @@
 
 #include "PreCompiled.h"
 #ifndef _PreComp_
+#include <algorithm>
 #include <limits>
 #include <Inventor/actions/SoGetBoundingBoxAction.h>
 #include <Inventor/nodes/SoClipPlane.h>
@@ -152,7 +153,7 @@ Clipping::Clipping(Gui::View3DInventor* view, QWidget* parent)
         float lenx, leny, lenz;
         box.getSize(lenx, leny, lenz);
         int steps = 100;
-        float minlen = std::min<float>(lenx, std::min<float>(leny, lenz));
+        float minlen = std::min<float>({lenx, leny, lenz});
 
         // determine the single step values
         {

@@ -1773,7 +1773,7 @@ bool MeshOutput::SaveAsymptote(std::ostream& out) const
     Base::Vector3f center = bbox.GetCenter();
     this->_transform.multVec(center, center);
     Base::Vector3f camera(center);
-    camera.x += std::max<float>(std::max<float>(bbox.LengthX(), bbox.LengthY()), bbox.LengthZ());
+    camera.x += std::max<float>({bbox.LengthX(), bbox.LengthY(), bbox.LengthZ()});
     Base::Vector3f target(center);
     Base::Vector3f upvec(0.0F, 0.0F, 1.0F);
 

@@ -447,8 +447,7 @@ void MeshGrid::SearchNearestFromPoint(const Base::Vector3f& pnt,
         unsigned long ulZ {};
         Position(pnt, ulX, ulY, ulZ);
         // int nX = ulX, nY = ulY, nZ = ulZ;
-        unsigned long ulMaxLevel =
-            std::max<unsigned long>(_ulCtGridsX, std::max<unsigned long>(_ulCtGridsY, _ulCtGridsZ));
+        unsigned long ulMaxLevel = std::max<unsigned long>({_ulCtGridsX, _ulCtGridsY, _ulCtGridsZ});
         unsigned long ulLevel = 0;
         while (indices.empty() && ulLevel <= ulMaxLevel) {
             GetHull(ulX, ulY, ulZ, ulLevel++, indices);
@@ -769,7 +768,7 @@ unsigned long MeshFacetGrid::SearchNearestFromPoint(const Base::Vector3f& rclPt)
         unsigned long ulY {};
         unsigned long ulZ {};
         Position(rclPt, ulX, ulY, ulZ);
-        float fMinGridDist = std::min<float>(std::min<float>(_fGridLenX, _fGridLenY), _fGridLenZ);
+        float fMinGridDist = std::min<float>({_fGridLenX, _fGridLenY, _fGridLenZ});
         unsigned long ulDistance = 0;
         while (fMinDist > (fMinGridDist * float(ulDistance))) {
             SearchNearestFacetInHull(ulX, ulY, ulZ, ulDistance, rclPt, ulFacetInd, fMinDist);

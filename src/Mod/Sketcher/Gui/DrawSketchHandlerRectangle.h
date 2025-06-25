@@ -25,6 +25,7 @@
 #define SKETCHERGUI_DrawSketchHandlerRectangle_H
 
 #include <QApplication>
+#include <algorithm>
 
 #include <Gui/BitmapFactory.h>
 #include <Gui/Notifications.h>
@@ -1582,8 +1583,7 @@ private:
             obliqueThickness = std::min(fabs(du), fabs(length - du));
         }
         else if (du > 0 && du < length && dv > 0 && dv < width) {
-            obliqueThickness = -std::min(std::min(fabs(du), fabs(length - du)),
-                                         std::min(fabs(dv), fabs(width - dv)));
+            obliqueThickness = -std::min({fabs(du), fabs(length - du), fabs(dv), fabs(width - dv)});
         }
         else {
             obliqueThickness = std::max(std::min(fabs(du), fabs(length - du)),

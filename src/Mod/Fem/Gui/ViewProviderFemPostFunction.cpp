@@ -23,6 +23,7 @@
 #include "PreCompiled.h"
 
 #ifndef _PreComp_
+#include <algorithm>
 #include <cmath>
 
 #include <Inventor/actions/SoSearchAction.h>
@@ -252,7 +253,7 @@ bool ViewProviderFemPostFunction::findScaleFactor(double& scale) const
         float dx, dy, dz;
         bbox.getSize(dx, dy, dz);
         // we want the manipulator to have 20 % of the max size of the object
-        scale = 0.2 * std::max(std::max(dx, dy), dz);
+        scale = 0.2 * std::max({dx, dy, dz});
         return true;
     }
 

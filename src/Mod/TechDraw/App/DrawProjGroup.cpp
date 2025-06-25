@@ -25,6 +25,7 @@
 
 #ifndef _PreComp_
 #include <QRectF>
+#include <algorithm>
 #include <gp_Ax2.hxx>
 #include <gp_Dir.hxx>
 #include <gp_Pnt.hxx>
@@ -335,19 +336,16 @@ void DrawProjGroup::getViewArea(std::array<DrawProjGroupItem*, MAXPROJECTIONCOUN
 
     //TODO: note that TLF/TRF/BLF, BRF extend a bit farther than a strict row/col arrangement would suggest.
     //get widest view in each row/column
-    double col0w =
-               std::max(std::max(bboxes[0].LengthX(), bboxes[3].LengthX()), bboxes[7].LengthX()),
-           col1w =
-               std::max(std::max(bboxes[1].LengthX(), bboxes[4].LengthX()), bboxes[8].LengthX()),
-           col2w =
-               std::max(std::max(bboxes[2].LengthX(), bboxes[5].LengthX()), bboxes[9].LengthX()),
+    double col0w = std::max({bboxes[0].LengthX(), bboxes[3].LengthX(), bboxes[7].LengthX()}),
+           col1w = std::max({bboxes[1].LengthX(), bboxes[4].LengthX(), bboxes[8].LengthX()}),
+           col2w = std::max({bboxes[2].LengthX(), bboxes[5].LengthX(), bboxes[9].LengthX()}),
            col3w = bboxes[6].LengthX(),
-           row0h =
-               std::max(std::max(bboxes[0].LengthY(), bboxes[1].LengthY()), bboxes[2].LengthY()),
-           row1h = std::max(std::max(bboxes[3].LengthY(), bboxes[4].LengthY()),
-                            std::max(bboxes[5].LengthY(), bboxes[6].LengthY())),
-           row2h =
-               std::max(std::max(bboxes[7].LengthY(), bboxes[8].LengthY()), bboxes[9].LengthY());
+           row0h = std::max({bboxes[0].LengthY(), bboxes[1].LengthY(), bboxes[2].LengthY()}),
+           row1h = std::max({bboxes[3].LengthY(),
+                             bboxes[4].LengthY(),
+                             bboxes[5].LengthY(),
+                             bboxes[6].LengthY()}),
+           row2h = std::max({bboxes[7].LengthY(), bboxes[8].LengthY(), bboxes[9].LengthY()});
 
     width = col0w + col1w + col2w + col3w;
     height = row0h + row1h + row2h;

@@ -11,6 +11,7 @@
 // * Fix compiler warnings
 // * Remove macros loop,i,j,k
 
+#include <algorithm>
 #include <vector>
 
 using vec3f = Base::Vector3f;
@@ -311,7 +312,7 @@ void Simplify::update_triangles(int i0,Vertex &v,std::vector<int> &deleted,int &
         t.err[0]=calculate_error(t.v[0],t.v[1],p);
         t.err[1]=calculate_error(t.v[1],t.v[2],p);
         t.err[2]=calculate_error(t.v[2],t.v[0],p);
-        t.err[3]=std::min(t.err[0],std::min(t.err[1],t.err[2]));
+        t.err[3]=std::min({t.err[0],t.err[1],t.err[2]});
         refs.push_back(r);
     }
 }
@@ -362,7 +363,7 @@ void Simplify::update_mesh(int iteration)
             Triangle &t=triangles[i];vec3f p;
             for (std::size_t j=0;j<3;++j)
                 t.err[j] = calculate_error(t.v[j],t.v[(j+1)%3],p);
-            t.err[3]=std::min(t.err[0],std::min(t.err[1],t.err[2]));
+            t.err[3]=std::min({t.err[0],t.err[1],t.err[2]});
         }
     }
 
@@ -522,7 +523,7 @@ double Simplify::calculate_error(int id_v1, int id_v2, vec3f &p_result)
         double error1 = vertex_error(q, p1.x,p1.y,p1.z);
         double error2 = vertex_error(q, p2.x,p2.y,p2.z);
         double error3 = vertex_error(q, p3.x,p3.y,p3.z);
-        error = std::min(error1, std::min(error2, error3));
+        error = std::min({error1, error2, error3});
         if (error1 == error)
             p_result=p1;
         if (error2 == error)
