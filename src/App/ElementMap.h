@@ -58,7 +58,7 @@ using ElementMapPtr = std::shared_ptr<ElementMap>;
  *
  * @sa traceElement()
  */
-typedef std::function<bool(const MappedName&, int, long, long)> TraceCallback;
+using TraceCallback = std::function<bool(const MappedName&, int, long, long)>;
 
 /* This class provides for ComplexGeoData's ability to provide proper naming.
  * Specifically, ComplexGeoData uses this class for it's `_id` property.

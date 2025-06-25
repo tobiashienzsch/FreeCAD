@@ -218,7 +218,7 @@ App::ElementNamePair Feature::getExportElementName(TopoShape shape,
                     lower = TopAbs_SHAPE;
             }
             if (lower != TopAbs_SHAPE) {
-                typedef std::pair<size_t, std::vector<int>> NameEntry;
+                using NameEntry = std::pair<size_t, std::vector<int>>;
                 std::vector<NameEntry> indices;
                 std::vector<Data::MappedName> names;
                 std::vector<int> ancestors;

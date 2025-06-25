@@ -63,7 +63,7 @@ enum class SearchOption
     CheckGeometry = 1,
     SingleResult = 2,
 };
-typedef Base::Flags<SearchOption> SearchOptions;
+using SearchOptions = Base::Flags<SearchOption>;
 
 /** Segments
  *  Sub-element type of the ComplexGeoData type

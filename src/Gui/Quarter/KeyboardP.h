@@ -53,7 +53,7 @@ public:
   void initKeyMap();
   static bool debugKeyEvents();
 
-  typedef QMap<Qt::Key, SoKeyboardEvent::Key> KeyMap;
+  using KeyMap = QMap<Qt::Key, SoKeyboardEvent::Key>;
   static KeyMap * keyboardmap;
   static KeyMap * keypadmap;
 

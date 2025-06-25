@@ -61,8 +61,8 @@ class EventFilter;
 const char DEFAULT_NAVIGATIONFILE []  = "coin:///scxml/navigation/examiner.xml";
 
 class QUARTER_DLL_API QuarterWidget : public QGraphicsView {
-  typedef QGraphicsView inherited;
-  Q_OBJECT
+    using inherited = QGraphicsView;
+    Q_OBJECT
 
 public:
   enum TransparencyType {

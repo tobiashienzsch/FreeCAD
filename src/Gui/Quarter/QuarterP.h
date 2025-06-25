@@ -50,7 +50,7 @@ class QuarterP {
   class SensorManager * sensormanager;
   class ImageReader * imagereader;
 
-  typedef QMap<SbName, QCursor> StateCursorMap;
+  using StateCursorMap = QMap<SbName, QCursor>;
   static StateCursorMap * statecursormap;
 
   bool initCoin;

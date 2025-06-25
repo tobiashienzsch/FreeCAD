@@ -408,7 +408,7 @@ namespace Gui {
  * TreeWidget item delegate for editing
  */
 class TreeWidgetItemDelegate: public QStyledItemDelegate {
-    typedef QStyledItemDelegate inherited;
+    using inherited = QStyledItemDelegate;
 
     // Beware, big scary hack incoming!
     //

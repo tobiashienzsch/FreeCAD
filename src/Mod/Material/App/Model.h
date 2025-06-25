@@ -317,7 +317,7 @@ private:
     std::map<QString, ModelProperty> _properties;
 };
 
-typedef FolderTreeNode<Model> ModelTreeNode;
+using ModelTreeNode = FolderTreeNode<Model>;
 
 }  // namespace Materials
 

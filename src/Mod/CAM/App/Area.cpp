@@ -3498,8 +3498,8 @@ struct WireOrienter
     }
 };
 
-typedef Standard_Real (gp_Pnt::*AxisGetter)() const;
-typedef void (gp_Pnt::*AxisSetter)(Standard_Real);
+using AxisGetter = Standard_Real (gp_Pnt::*)() const;
+using AxisSetter = void (gp_Pnt::*)(Standard_Real);
 
 std::list<TopoDS_Shape> Area::sortWires(const std::list<TopoDS_Shape>& shapes,
                                         bool has_start,

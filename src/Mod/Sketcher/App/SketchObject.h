@@ -62,7 +62,7 @@ enum class ExtType
 
 class SketcherExport SketchObject: public Part::Part2DObject
 {
-    typedef Part::Part2DObject inherited;
+    using inherited = Part::Part2DObject;
     PROPERTY_HEADER_WITH_OVERRIDE(Sketcher::SketchObject);
 
 public:

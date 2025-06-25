@@ -43,7 +43,8 @@ class SignalThread;
 
 class SensorManager : public QObject {
   Q_OBJECT
-  typedef QObject inherited;
+  using inherited = QObject;
+
 public:
   SensorManager();
   ~SensorManager() override;

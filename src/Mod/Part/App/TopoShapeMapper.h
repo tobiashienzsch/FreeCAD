@@ -230,7 +230,7 @@ struct PartExport ShapeMapper: TopoShape::Mapper
         std::vector<TopoDS_Shape> shapes;
         std::unordered_set<TopoDS_Shape, ShapeHasher, ShapeHasher> shapeSet;
     };
-    typedef std::unordered_map<TopoDS_Shape, ShapeValue, ShapeHasher, ShapeHasher> ShapeMap;
+    using ShapeMap = std::unordered_map<TopoDS_Shape, ShapeValue, ShapeHasher, ShapeHasher>;
     ShapeMap _generated;
     std::unordered_set<TopoDS_Shape, ShapeHasher, ShapeHasher> _generatedShapes;
     ShapeMap _modified;

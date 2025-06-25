@@ -49,10 +49,10 @@ bool GLLogError()
 }
 
 
-typedef struct Vertex
+using Vertex = struct Vertex
 {
     vec3 pos;
     vec3 col;
-} Vertex;
+};
 
 }  // namespace MillSim
